@@ -30,6 +30,14 @@ class SimonButton : UIButton {
         return eButtonId
     }
     
+    func roundCorners(corners : UIRectCorner, cornerRadii : CGSize) {
+        let maskPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: cornerRadii)
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = bounds
+        maskLayer.path = maskPath.cgPath
+        layer.mask = maskLayer
+    }
+    
     func playSound() {
         guard let url = Bundle.main.url(forResource: soundResource, withExtension: "mp3") else { return }
         
@@ -43,8 +51,9 @@ class SimonButton : UIButton {
         }
     }
     
-    func setButtonSettings(buttonId: Constants.eSimonButton, soundResource : String) {
+    func setButtonSettings(buttonId: Constants.eSimonButton, soundResource : String, corners : UIRectCorner, cornerRadii : CGSize) {
         setButtonId(buttonId: buttonId)
         setSoundResource(soundResource: soundResource)
+        roundCorners(corners: corners, cornerRadii: cornerRadii)
     }
 }

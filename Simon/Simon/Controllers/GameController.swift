@@ -61,10 +61,10 @@ class GameController: UIViewController {
     
     func initBoard() {
         // Setting the properties of the simon buttons
-        btnTopRight.setButtonSettings(buttonId: Constants.eSimonButton.topRight, soundResource: "simonSound1")
-        btnTopLeft.setButtonSettings(buttonId: Constants.eSimonButton.topLeft, soundResource: "simonSound2")
-        btnBottomRight.setButtonSettings(buttonId: Constants.eSimonButton.bottomRight, soundResource: "simonSound3")
-        btnBottomLeft.setButtonSettings(buttonId: Constants.eSimonButton.bottomLeft, soundResource: "simonSound4")
+        btnTopRight.setButtonSettings(buttonId: Constants.eSimonButton.topRight, soundResource: "simonSound1", corners: [.topRight], cornerRadii: CGSize(width: 2 * btnTopRight.bounds.width, height: 0))
+        btnTopLeft.setButtonSettings(buttonId: Constants.eSimonButton.topLeft, soundResource: "simonSound2", corners: [.topLeft], cornerRadii: CGSize(width: 2 * btnTopLeft.bounds.width, height: 0))
+        btnBottomRight.setButtonSettings(buttonId: Constants.eSimonButton.bottomRight, soundResource: "simonSound3", corners: [.bottomRight], cornerRadii: CGSize(width: 2 * btnBottomRight.bounds.width, height: 0))
+        btnBottomLeft.setButtonSettings(buttonId: Constants.eSimonButton.bottomLeft, soundResource: "simonSound4", corners: [.bottomLeft], cornerRadii: CGSize(width: 2 * btnBottomLeft.bounds.width, height: 0))
         
         // Setting the labels of the player name and the level
         lblName.text = GameManager.sharedInstance.getPlayerName()

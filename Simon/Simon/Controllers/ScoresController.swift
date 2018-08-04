@@ -26,6 +26,11 @@ class ScoresController : UIViewController, UICollectionViewDelegate, UICollectio
         scores = Score.fetchData(limit: LIMIT)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        // Show navigation bar
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return (scores?.count)! + 1
     }
@@ -38,6 +43,8 @@ class ScoresController : UIViewController, UICollectionViewDelegate, UICollectio
         // Getting a cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ScoreCell", for: indexPath) as! ScoreCell
         
+        cell.lblText.textColor = UIColor.white
+        
         // Setting the cell's content
         if (indexPath.section == 0) {
             if (indexPath.item == 0) {
@@ -45,15 +52,16 @@ class ScoresController : UIViewController, UICollectionViewDelegate, UICollectio
             } else if (indexPath.item == 1){
                 cell.lblText.text = SCORE
             }
-            
-            cell.lblText.textColor = UIColor.blue
-            cell.lblText.font = UIFont(name: cell.lblText.font.fontName, size: 24)
+        
+            cell.lblText.font = UIFont(name: "Chalkboard SE", size: 35)
         } else {
             if (indexPath.item == 0) {
                 cell.lblText.text = scores![indexPath.section - 1].name
             } else if (indexPath.item == 1){
                 cell.lblText.text = String(scores![indexPath.section - 1].points.intValue)
             }
+            
+            cell.lblText.font = UIFont(name: cell.lblText.font.fontName, size: 24)
         }
         
         return cell
@@ -62,7 +70,7 @@ class ScoresController : UIViewController, UICollectionViewDelegate, UICollectio
     @objc func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         // Set the dimentions of each cell in the board
         let dimentionWidth = collectionView.frame.width / 2 - 10
-        let dimentionHeight = CGFloat(30)
+        let dimentionHeight = CGFloat(40)
         
         return CGSize(width: dimentionWidth, height: dimentionHeight)
     }

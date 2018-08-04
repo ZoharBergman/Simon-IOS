@@ -17,6 +17,10 @@ class MenuController: UIViewController {
         txtName.text = "Zohar"
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     @IBAction func onGoButtonPressed(_ sender: UIButton) {
         txtName.text = txtName.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
