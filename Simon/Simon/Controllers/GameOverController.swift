@@ -12,11 +12,9 @@ import UIKit
 class GameOverController: UIViewController {
     @IBOutlet weak var lblScore: UILabel!
     @IBOutlet weak var btnShareButton: UIButton!
+    @IBOutlet weak var imgLogo: UIImageView!
     
-    let shareButton: FBSDKShareButton = {
-        let button = FBSDKShareButton()
-        return button
-    }()
+    let shareButton = FBSDKShareButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +25,7 @@ class GameOverController: UIViewController {
         view.addSubview(shareButton)
         shareButton.center = view.center
         assignPhotoToShareOnFacebook(image: GameManager.sharedInstance.getScreenShot())
-        
+    
         // Creating custom back button
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(GameOverController.back(sender:)))
@@ -41,6 +39,12 @@ class GameOverController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         // Show navigation bar
         navigationController?.setNavigationBarHidden(false, animated: false)
+        
+        startSpinLogo()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        stopSpinLogo()
     }
     
     @IBAction func onStartAgainButtonPressed(_ sender: UIButton) {
@@ -48,21 +52,21 @@ class GameOverController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func onShareButtonPressed(_ sender: UIButton) {
-        DispatchQueue.main.async {
-            var activityItems: [AnyObject]?
-            
-            activityItems = ["I played on Simon" as AnyObject, GameManager.sharedInstance.getScreenShot()]
-            
-            let activityController = UIActivityViewController(activityItems:
-                activityItems!, applicationActivities: nil)
-            
-            activityController.popoverPresentationController?.sourceView = self.view
-            
-            self.present(activityController, animated: true,
-                         completion: nil)
-        }
-    }
+//    @IBAction func onShareButtonPressed(_ sender: UIButton) {
+//        DispatchQueue.main.async {
+//            var activityItems: [AnyObject]?
+//
+//            activityItems = ["I played on Simon" as AnyObject, GameManager.sharedInstance.getScreenShot()]
+//
+//            let activityController = UIActivityViewController(activityItems:
+//                activityItems!, applicationActivities: nil)
+//
+//            activityController.popoverPresentationController?.sourceView = self.view
+//
+//            self.present(activityController, animated: true,
+//                         completion: nil)
+//        }
+//    }
     
     func assignPhotoToShareOnFacebook(image : UIImage) {
         let fbSharePhoto = FBSDKSharePhoto()
@@ -73,5 +77,21 @@ class GameOverController: UIViewController {
         fbShareContent.photos = [fbSharePhoto]
         
         shareButton.shareContent = fbShareContent
+    }
+    
+    func startSpinLogo() {
+        let spinning = CABasicAnimation(keyPath: "transform.rotation.z")
+        spinning.fromValue = 0
+        spinning.toValue = 2*3.14
+        spinning.duration = 2.5
+        spinning.repeatCount = .infinity
+        
+        imgLogo.layer.add(spinning, forKey: "spin")
+    }
+    
+    func stopSpinLogo() {
+        DispatchQueue.main.async() {    
+            self.imgLogo.layer.removeAllAnimations()
+        }
     }
 }

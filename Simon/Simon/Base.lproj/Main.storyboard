@@ -14,6 +14,7 @@
     <customFonts key="customFonts">
         <array key="ChalkboardSE.ttc">
             <string>ChalkboardSE-Bold</string>
+            <string>ChalkboardSE-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -216,43 +217,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDv-uv-fHc">
-                                <rect key="frame" x="56" y="93" width="262.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You got 5 points!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDv-uv-fHc">
+                                <rect key="frame" x="56" y="63.5" width="262.5" height="113.5"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="40"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDh-zY-Xgk">
-                                <rect key="frame" x="94" y="518.5" width="187.5" height="30"/>
-                                <state key="normal" title="Start Again"/>
+                                <rect key="frame" x="94" y="216.5" width="187.5" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Start Again">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="onStartAgainButtonPressed:" destination="rj6-Xz-ILL" eventType="touchUpInside" id="Gtk-jV-vPX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Okg-E1-aw4">
-                                <rect key="frame" x="94" y="225.5" width="187.5" height="30"/>
-                                <state key="normal" title="Share"/>
-                                <connections>
-                                    <action selector="onShareButtonPressed:" destination="rj6-Xz-ILL" eventType="touchUpInside" id="onQ-aQ-C9v"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="‏‏LogoNoText" translatesAutoresizingMaskIntoConstraints="NO" id="fRp-Dk-USQ">
+                                <rect key="frame" x="94" y="438.5" width="187.5" height="187.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fRp-Dk-USQ" secondAttribute="height" multiplier="1:1" id="6oF-Ok-44i"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TDh-zY-Xgk" firstAttribute="centerX" secondItem="e7m-U2-HFk" secondAttribute="centerX" id="0Fi-N1-YfL"/>
-                            <constraint firstItem="Okg-E1-aw4" firstAttribute="centerY" secondItem="e7m-U2-HFk" secondAttribute="centerY" multiplier="0.7" id="10H-V3-e28"/>
                             <constraint firstItem="eDv-uv-fHc" firstAttribute="centerX" secondItem="e7m-U2-HFk" secondAttribute="centerX" id="HMz-hb-e6f"/>
-                            <constraint firstItem="Okg-E1-aw4" firstAttribute="width" secondItem="nlq-mV-VaJ" secondAttribute="width" multiplier="0.5" id="QnW-Tq-OOH"/>
                             <constraint firstItem="TDh-zY-Xgk" firstAttribute="width" secondItem="nlq-mV-VaJ" secondAttribute="width" multiplier="0.5" id="Xws-WY-4Og"/>
-                            <constraint firstItem="eDv-uv-fHc" firstAttribute="centerY" secondItem="e7m-U2-HFk" secondAttribute="centerY" multiplier="0.3" id="eTg-T7-hKU"/>
-                            <constraint firstItem="Okg-E1-aw4" firstAttribute="centerX" secondItem="e7m-U2-HFk" secondAttribute="centerX" id="gCz-3a-mf6"/>
+                            <constraint firstItem="eDv-uv-fHc" firstAttribute="centerY" secondItem="e7m-U2-HFk" secondAttribute="centerY" multiplier="0.35" id="eTg-T7-hKU"/>
                             <constraint firstItem="eDv-uv-fHc" firstAttribute="width" secondItem="nlq-mV-VaJ" secondAttribute="width" multiplier="0.7" id="hqL-Jp-raI"/>
-                            <constraint firstItem="TDh-zY-Xgk" firstAttribute="centerY" secondItem="e7m-U2-HFk" secondAttribute="bottom" multiplier="0.8" id="sDB-qQ-RZt"/>
+                            <constraint firstItem="fRp-Dk-USQ" firstAttribute="centerY" secondItem="e7m-U2-HFk" secondAttribute="centerY" multiplier="1.55" id="mYg-ZA-zJu"/>
+                            <constraint firstItem="TDh-zY-Xgk" firstAttribute="centerY" secondItem="e7m-U2-HFk" secondAttribute="centerY" multiplier="0.7" id="sDB-qQ-RZt"/>
+                            <constraint firstItem="fRp-Dk-USQ" firstAttribute="width" secondItem="nlq-mV-VaJ" secondAttribute="width" multiplier="0.5" id="uCy-bg-UxQ"/>
+                            <constraint firstItem="fRp-Dk-USQ" firstAttribute="centerX" secondItem="e7m-U2-HFk" secondAttribute="centerX" id="uVt-pB-U9v"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="e7m-U2-HFk"/>
                     </view>
                     <connections>
-                        <outlet property="btnShareButton" destination="Okg-E1-aw4" id="TmX-Y2-Ufz"/>
+                        <outlet property="imgLogo" destination="fRp-Dk-USQ" id="qdY-7G-Rix"/>
                         <outlet property="lblScore" destination="eDv-uv-fHc" id="Q5U-zL-wcz"/>
                     </connections>
                 </viewController>
@@ -268,7 +271,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9HD-5d-kbd">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9HD-5d-kbd">
                                 <rect key="frame" x="93.5" y="387" width="188" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>

@@ -14,11 +14,21 @@ class MenuController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        txtName.text = "Zohar"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // Closing the keyboard when the user touch outside of it
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Closing the keyboard when the user press return
+        txtName.resignFirstResponder()
+        return true
     }
     
     @IBAction func onGoButtonPressed(_ sender: UIButton) {
