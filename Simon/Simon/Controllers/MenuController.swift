@@ -9,11 +9,12 @@
 import UIKit
 import Social
 
-class MenuController: UIViewController {
+class MenuController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtName: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.txtName.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,7 +28,8 @@ class MenuController: UIViewController {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Closing the keyboard when the user press return
-        txtName.resignFirstResponder()
+//        txtName.resignFirstResponder()
+        self.view.endEditing(true)
         return true
     }
     
