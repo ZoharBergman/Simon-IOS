@@ -30,16 +30,9 @@ class SimonButton : UIButton {
         return eButtonId
     }
     
-    func roundCorners(corners : UIRectCorner, cornerRadii : CGSize) {
-        let maskPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: cornerRadii)
-        let maskLayer = CAShapeLayer()
-        maskLayer.frame = bounds
-        maskLayer.path = maskPath.cgPath
-        layer.mask = maskLayer
-//        backgroundColor = .clear
-//        layer.cornerRadius = 5
-//        layer.borderWidth = 1
-//        layer.borderColor = UIColor.black.cgColor
+    func roundCorners(cornerRadius: CGFloat, maskedCorners: CACornerMask) {
+        layer.cornerRadius = cornerRadius
+        layer.maskedCorners = maskedCorners
     }
     
     func playSound() {
@@ -55,9 +48,9 @@ class SimonButton : UIButton {
         }
     }
     
-    func setButtonSettings(buttonId: Constants.eSimonButton, soundResource : String, corners : UIRectCorner, cornerRadii : CGSize) {
+    func setButtonSettings(buttonId: Constants.eSimonButton, soundResource : String, cornerRadius: CGFloat, maskedCorners: CACornerMask) {
         setButtonId(buttonId: buttonId)
         setSoundResource(soundResource: soundResource)
-        roundCorners(corners: corners, cornerRadii: cornerRadii)
+        roundCorners(cornerRadius: cornerRadius, maskedCorners: maskedCorners)
     }
 }
