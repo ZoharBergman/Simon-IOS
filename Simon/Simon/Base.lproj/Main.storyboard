@@ -42,8 +42,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSD-9y-mRy" customClass="SimonButton" customModule="Simon" customModuleProvider="target">
-                                <rect key="frame" x="20" y="175" width="169" height="168.5"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSD-9y-mRy" customClass="SimonButton" customModule="Simon" customModuleProvider="target">
+                                <rect key="frame" x="18.5" y="175" width="169" height="168.5"/>
                                 <color key="backgroundColor" red="0.043137254901960784" green="0.58039215686274503" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nSD-9y-mRy" secondAttribute="height" id="sGG-1d-B1d"/>
@@ -53,7 +53,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfQ-wP-mvn" customClass="SimonButton" customModule="Simon" customModuleProvider="target">
-                                <rect key="frame" x="186.5" y="175" width="168.5" height="168.5"/>
+                                <rect key="frame" x="187.5" y="175" width="168.5" height="168.5"/>
                                 <color key="backgroundColor" red="0.92941176470588238" green="0.10980392156862745" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="YfQ-wP-mvn" secondAttribute="height" id="lBw-pf-tyU"/>
@@ -63,7 +63,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQr-1T-guR" customClass="SimonButton" customModule="Simon" customModuleProvider="target">
-                                <rect key="frame" x="186.5" y="343.5" width="168.5" height="169"/>
+                                <rect key="frame" x="187.5" y="343.5" width="168.5" height="169"/>
                                 <color key="backgroundColor" red="0.14509803921568626" green="0.66666666666666663" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="VQr-1T-guR" secondAttribute="height" id="EjH-23-X3V"/>
@@ -73,7 +73,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LT6-tj-dQD" customClass="SimonButton" customModule="Simon" customModuleProvider="target">
-                                <rect key="frame" x="20" y="343.5" width="169" height="169"/>
+                                <rect key="frame" x="18.5" y="343.5" width="169" height="169"/>
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.93333333333333335" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="LT6-tj-dQD" secondAttribute="height" id="rbb-OK-liW"/>
@@ -100,24 +100,32 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNg-zn-ydY">
+                                <rect key="frame" x="131" y="202.5" width="114" height="283"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="200"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="8WZ-5Q-OUz" firstAttribute="width" secondItem="1iA-Ny-Sie" secondAttribute="width" multiplier="0.5" id="4tu-aN-hhG"/>
                             <constraint firstItem="tyt-3a-1W6" firstAttribute="centerY" secondItem="ssB-Ln-sNZ" secondAttribute="centerY" multiplier="0.25" id="5G9-xI-hlK"/>
                             <constraint firstItem="LT6-tj-dQD" firstAttribute="width" secondItem="1iA-Ny-Sie" secondAttribute="width" multiplier="0.45" id="6H6-h9-Dgc"/>
+                            <constraint firstItem="DNg-zn-ydY" firstAttribute="centerY" secondItem="ssB-Ln-sNZ" secondAttribute="centerY" id="9Db-ld-E7H"/>
                             <constraint firstItem="8WZ-5Q-OUz" firstAttribute="centerX" secondItem="ssB-Ln-sNZ" secondAttribute="centerX" id="9JY-NY-Mmi"/>
                             <constraint firstItem="VQr-1T-guR" firstAttribute="top" secondItem="ssB-Ln-sNZ" secondAttribute="centerY" id="Cg9-uk-p19"/>
-                            <constraint firstItem="LT6-tj-dQD" firstAttribute="leading" secondItem="1iA-Ny-Sie" secondAttribute="leading" constant="20" symbolic="YES" id="IlS-Vm-1ht"/>
+                            <constraint firstItem="DNg-zn-ydY" firstAttribute="centerX" secondItem="ssB-Ln-sNZ" secondAttribute="centerX" id="FyI-Cx-1mo"/>
+                            <constraint firstItem="YfQ-wP-mvn" firstAttribute="leading" secondItem="ssB-Ln-sNZ" secondAttribute="centerX" id="GhI-3q-VGv"/>
+                            <constraint firstItem="VQr-1T-guR" firstAttribute="leading" secondItem="ssB-Ln-sNZ" secondAttribute="centerX" id="Gnh-js-Adl"/>
+                            <constraint firstItem="LT6-tj-dQD" firstAttribute="trailing" secondItem="1iA-Ny-Sie" secondAttribute="centerX" symbolic="YES" id="IlS-Vm-1ht"/>
                             <constraint firstItem="YfQ-wP-mvn" firstAttribute="width" secondItem="1iA-Ny-Sie" secondAttribute="width" multiplier="0.45" id="QSu-WS-52A"/>
                             <constraint firstItem="N3n-Jx-60E" firstAttribute="centerX" secondItem="ssB-Ln-sNZ" secondAttribute="trailing" multiplier="0.85" id="T52-7z-uoO"/>
                             <constraint firstItem="nSD-9y-mRy" firstAttribute="bottom" secondItem="ssB-Ln-sNZ" secondAttribute="centerY" id="Wbq-5x-2IX"/>
-                            <constraint firstItem="nSD-9y-mRy" firstAttribute="leading" secondItem="1iA-Ny-Sie" secondAttribute="leading" constant="20" symbolic="YES" id="YeK-nV-9EQ"/>
+                            <constraint firstItem="nSD-9y-mRy" firstAttribute="trailing" secondItem="1iA-Ny-Sie" secondAttribute="centerX" symbolic="YES" id="YeK-nV-9EQ"/>
                             <constraint firstItem="8WZ-5Q-OUz" firstAttribute="centerY" secondItem="ssB-Ln-sNZ" secondAttribute="centerY" multiplier="0.35" id="cEE-4n-cJj"/>
                             <constraint firstItem="LT6-tj-dQD" firstAttribute="top" secondItem="ssB-Ln-sNZ" secondAttribute="centerY" id="g38-SO-tk4"/>
-                            <constraint firstAttribute="trailing" secondItem="YfQ-wP-mvn" secondAttribute="trailing" constant="20" symbolic="YES" id="jGu-zE-GrA"/>
-                            <constraint firstItem="YfQ-wP-mvn" firstAttribute="bottom" secondItem="ssB-Ln-sNZ" secondAttribute="centerY" id="lcD-2W-BQD"/>
-                            <constraint firstAttribute="trailing" secondItem="VQr-1T-guR" secondAttribute="trailing" constant="20" symbolic="YES" id="m4D-eW-qj0"/>
+                            <constraint firstItem="YfQ-wP-mvn" firstAttribute="bottom" secondItem="ssB-Ln-sNZ" secondAttribute="centerY" id="h3K-LD-bMK"/>
                             <constraint firstItem="tyt-3a-1W6" firstAttribute="width" secondItem="1iA-Ny-Sie" secondAttribute="width" multiplier="0.2" id="nD0-VR-8DZ"/>
                             <constraint firstItem="N3n-Jx-60E" firstAttribute="centerY" secondItem="tyt-3a-1W6" secondAttribute="centerY" id="nsO-Vq-S5P"/>
                             <constraint firstItem="N3n-Jx-60E" firstAttribute="width" secondItem="1iA-Ny-Sie" secondAttribute="width" multiplier="0.3" id="s2u-He-hDT"/>
@@ -133,6 +141,7 @@
                         <outlet property="btnBottomRight" destination="VQr-1T-guR" id="QHV-ky-YCd"/>
                         <outlet property="btnTopLeft" destination="nSD-9y-mRy" id="B2B-kd-mgm"/>
                         <outlet property="btnTopRight" destination="YfQ-wP-mvn" id="Ch8-hZ-3H1"/>
+                        <outlet property="lblCountdown" destination="DNg-zn-ydY" id="QdA-6C-De2"/>
                         <outlet property="lblLevel" destination="N3n-Jx-60E" id="3Bn-vf-hPv"/>
                         <outlet property="lblName" destination="tyt-3a-1W6" id="lZV-wv-l9E"/>
                         <outlet property="lblState" destination="8WZ-5Q-OUz" id="AvA-iJ-PzP"/>

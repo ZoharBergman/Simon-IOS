@@ -17,9 +17,13 @@ class GameController: UIViewController {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblLevel: UILabel!
     @IBOutlet weak var lblState: UILabel!
+    @IBOutlet weak var lblCountdown: UILabel!
+    
+    var countdown = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        lblCountdown.isHidden = true
         initBoard()
         GameManager.sharedInstance.attachBoardComponents(topLeft: btnTopLeft, topRight: btnTopRight, bottomLeft: btnBottomLeft, bottomRight: btnBottomRight, lblLevel: lblLevel, lblState: lblState)
         GameManager.sharedInstance.initGame()
@@ -56,15 +60,15 @@ class GameController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        GameManager.sharedInstance.startShowLevel()
+        startCountDown()
     }
     
     func initBoard() {
         // Setting the properties of the simon buttons
-        btnTopRight.setButtonSettings(buttonId: Constants.eSimonButton.topRight, soundResource: "simonSound1", corners: [.topRight], cornerRadii: CGSize(width: 2 * btnTopRight.bounds.width, height: 0))
-        btnTopLeft.setButtonSettings(buttonId: Constants.eSimonButton.topLeft, soundResource: "simonSound2", corners: [.topLeft], cornerRadii: CGSize(width: 2 * btnTopLeft.bounds.width, height: 0))
-        btnBottomRight.setButtonSettings(buttonId: Constants.eSimonButton.bottomRight, soundResource: "simonSound3", corners: [.bottomRight], cornerRadii: CGSize(width: 2 * btnBottomRight.bounds.width, height: 0))
-        btnBottomLeft.setButtonSettings(buttonId: Constants.eSimonButton.bottomLeft, soundResource: "simonSound4", corners: [.bottomLeft], cornerRadii: CGSize(width: 2 * btnBottomLeft.bounds.width, height: 0))
+        btnTopRight.setButtonSettings(buttonId: Constants.eSimonButton.topRight, soundResource: "simonSound1", corners: [.topRight], cornerRadii: CGSize(width: 40, height: 40))
+        btnTopLeft.setButtonSettings(buttonId: Constants.eSimonButton.topLeft, soundResource: "simonSound2", corners: [.topLeft], cornerRadii: CGSize(width: 40, height: 40))
+        btnBottomRight.setButtonSettings(buttonId: Constants.eSimonButton.bottomRight, soundResource: "simonSound3", corners: [.bottomRight], cornerRadii: CGSize(width: 40, height: 40))
+        btnBottomLeft.setButtonSettings(buttonId: Constants.eSimonButton.bottomLeft, soundResource: "simonSound4", corners: [.bottomLeft], cornerRadii: CGSize(width: 40, height: 40))
         
         // Setting the labels of the player name and the level
         lblName.text = GameManager.sharedInstance.getPlayerName()
@@ -97,6 +101,36 @@ class GameController: UIViewController {
                                               completion: {(_ : Bool) -> Void in
                                                 GameManager.sharedInstance.checkSimonButtonPress(simonButton: button, finishGameHandler: self.onFinishGame)}
                             )
+        })
+    }
+    
+    func startCountDown() {
+        lblCountdown.isHidden = false
+        countDown()
+    }
+    
+    func countDown() {
+        UIView.transition(with: lblCountdown, duration: 1, options: .transitionCrossDissolve, animations: {[weak self] in
+            self?.lblCountdown.text = String(describing: self?.countdown)
+        }, completion: onCompleteCountdown)
+    }
+    
+    func onCompleteCountdown(_ : Bool) -> Void {
+        countdown -= 1
+        
+        if (countdown > 0) {
+            countDown()
+        } else {
+            finishCountDown()
+        }
+    }
+    
+    func finishCountDown() {
+        UIView.transition(with: lblCountdown, duration: 1, options: .transitionCrossDissolve, animations: {[weak self] in
+            self?.lblCountdown.text = "GO"
+            }, completion: {[weak self] (_ : Bool) -> Void in
+                self?.lblCountdown.isHidden = true
+                GameManager.sharedInstance.startShowLevel()
         })
     }
 }

@@ -36,6 +36,10 @@ class SimonButton : UIButton {
         maskLayer.frame = bounds
         maskLayer.path = maskPath.cgPath
         layer.mask = maskLayer
+//        backgroundColor = .clear
+//        layer.cornerRadius = 5
+//        layer.borderWidth = 1
+//        layer.borderColor = UIColor.black.cgColor
     }
     
     func playSound() {
